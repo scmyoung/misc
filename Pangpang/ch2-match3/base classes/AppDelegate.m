@@ -10,10 +10,71 @@
 
 #import "AppDelegate.h"
 #import "IntroLayer.h"
+#import "MAFacebookScene.h"
+#import "MAMenuScene.h"
 
 @implementation AppController
 
 @synthesize window=window_, navController=navController_, director=director_;
+
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation
+{
+    return [FBSession.activeSession handleOpenURL:url];
+}
+
+- (void)showLoginView
+{
+    [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[MAFacebookScene scene]]];
+
+}
+
+- (void)showMenuScreen
+{
+    [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[MAMenuScene scene] withColor:ccWHITE]];
+}
+
+- (void)sessionStateChanged:(FBSession *)session
+                      state:(FBSessionState) state
+                      error:(NSError *)error
+{
+    switch (state) {
+        case FBSessionStateOpen: {
+            [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[MAMenuScene scene] withColor:ccWHITE]];
+        }
+            break;
+        case FBSessionStateClosed:
+        case FBSessionStateClosedLoginFailed:
+            [FBSession.activeSession closeAndClearTokenInformation];
+            //[self showLoginView];
+            break;
+        default:
+            break;
+    }
+    
+    if (error) {
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"Error"
+                                  message:error.localizedDescription
+                                  delegate:nil
+                                  cancelButtonTitle:@"OK"
+                                  otherButtonTitles:nil];
+        [alertView show];
+    }
+}
+
+- (void)openSession
+{
+    [FBSession openActiveSessionWithReadPermissions:nil
+                                       allowLoginUI:YES
+                                  completionHandler:
+     ^(FBSession *session,
+       FBSessionState state, NSError *error) {
+         [self sessionStateChanged:session state:state error:error];
+     }];
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -87,7 +148,8 @@
 	
 	// make main window visible
 	[window_ makeKeyAndVisible];
-	
+    
+
 	return YES;
 }
 
@@ -110,6 +172,7 @@
 {
 	if( [navController_ visibleViewController] == director_ )
 		[director_ resume];
+    [FBSession.activeSession handleDidBecomeActive];
 }
 
 -(void) applicationDidEnterBackground:(UIApplication*)application

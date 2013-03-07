@@ -9,6 +9,9 @@
 // Import the interfaces
 #import "IntroLayer.h"
 #import "MAMenuScene.h"
+#import "MAFacebookScene.h"
+#import <FacebookSDK/FacebookSDK.h>
+#import "AppDelegate.h"
 
 #pragma mark - IntroLayer
 
@@ -31,6 +34,7 @@
 	return scene;
 }
 
+
 // 
 -(void) onEnter
 {
@@ -48,16 +52,24 @@
 		background = [CCSprite spriteWithFile:@"Default-Landscape~ipad.png"];
 	}
 	background.position = ccp(size.width/2, size.height/2);
-
-	// add the label as a child to this Layer
-	[self addChild: background];
-	
+    
 	// In one second transition to the new scene
-	//[self scheduleOnce:@selector(makeTransition:) delay:1];
+	[self scheduleOnce:@selector(makeTransition:) delay:1];
+
 }
 
 -(void) makeTransition:(ccTime)dt
 {
-	[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[MAMenuScene scene] withColor:ccWHITE]];
+    // Handle Facebook Login Info
+    // See if we have a valid token for the current state.
+    if (FBSession.activeSession.state == FBSessionStateCreatedTokenLoaded) {
+        // To-do, show logged in view
+        AppController *appDelegate = (AppController *)[[UIApplication sharedApplication] delegate];
+        [appDelegate openSession];
+    } else {
+        // No, display the login page.
+        [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[MAFacebookScene scene]]];
+    }
+	
 }
 @end
