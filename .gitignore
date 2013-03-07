@@ -1,0 +1,16 @@
+.DS_Store
+# xcode noise
+*.pbxuser
+*.mode1v3
+*.xcuserstate
+ScmMads.framework
+
+*.swp
+*~.nib
+
+build/
+
+*.perspective
+*.perspectivev3
+
+xcuserdata
