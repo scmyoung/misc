@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2843" systemVersion="12C3006" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Skk-xI-lba">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1929"/>
+    </dependencies>
+    <scenes>
+        <!--Scan View Controller - Scan QR-->
+        <scene sceneID="5">
+            <objects>
+                <viewController id="2" customClass="ScanViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="bg-gunmetal.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="1Qv-dq-VhO"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R6R-vV-7sV">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="220" id="7wK-4g-MMc"/>
+                                    <constraint firstAttribute="width" constant="220" id="Y88-dO-xi1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="button.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="scanFromCamara:" destination="2" eventType="touchUpInside" id="l8c-C4-mkD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EmO-Cr-iIB">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="5cw-0p-DZC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Scan from Gallary" backgroundImage="standard-big.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="scanFromGallary:" destination="2" eventType="touchUpInside" id="xEl-ES-0GJ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="R6R-vV-7sV" firstAttribute="top" secondItem="3" secondAttribute="top" constant="40" type="user" id="0Y8-1W-Jvw"/>
+                            <constraint firstItem="EmO-Cr-iIB" firstAttribute="centerX" secondItem="1Qv-dq-VhO" secondAttribute="centerX" type="default" id="GeC-fP-VGM"/>
+                            <constraint firstItem="EmO-Cr-iIB" firstAttribute="leading" secondItem="R6R-vV-7sV" secondAttribute="leading" type="default" id="IOO-Mi-9Tw"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="EmO-Cr-iIB" secondAttribute="bottom" constant="50" type="user" id="LrJ-u5-dAZ"/>
+                            <constraint firstAttribute="bottom" secondItem="EmO-Cr-iIB" secondAttribute="bottom" constant="50" id="Msf-gt-0YK"/>
+                            <constraint firstItem="1Qv-dq-VhO" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="RJc-SB-31c"/>
+                            <constraint firstItem="1Qv-dq-VhO" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="a56-Yp-bqW"/>
+                            <constraint firstItem="R6R-vV-7sV" firstAttribute="top" relation="greaterThanOrEqual" secondItem="3" secondAttribute="top" constant="38" type="user" id="et2-JQ-lfj"/>
+                            <constraint firstItem="EmO-Cr-iIB" firstAttribute="trailing" secondItem="R6R-vV-7sV" secondAttribute="trailing" type="default" id="nFM-i5-f7v"/>
+                            <constraint firstItem="1Qv-dq-VhO" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="pwZ-ia-Tjk"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Scan QR" id="zjO-xc-syk"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1083" y="-303"/>
+        </scene>
+        <!--View Controller - History Scan-->
+        <scene sceneID="g99-wR-MRQ">
+            <objects>
+                <viewController id="g6g-sw-h0t" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pmC-SS-weK">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="bg-gunmetal.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="iEY-rD-FCp"/>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="iEY-rD-FCp" firstAttribute="bottom" secondItem="pmC-SS-weK" secondAttribute="bottom" type="default" id="Rob-7N-D8F"/>
+                            <constraint firstItem="iEY-rD-FCp" firstAttribute="leading" secondItem="pmC-SS-weK" secondAttribute="leading" type="default" id="SKe-kG-Ajj"/>
+                            <constraint firstItem="iEY-rD-FCp" firstAttribute="top" secondItem="pmC-SS-weK" secondAttribute="top" type="default" id="yRq-0p-wZG"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="History Scan" id="rh1-Fg-uf0"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ghW-F8-Nsp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1955" y="392"/>
+        </scene>
+        <!--View Controller - Generate QR-->
+        <scene sceneID="t4U-z0-u0o">
+            <objects>
+                <viewController id="4r4-Sl-I4p" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UXh-a6-Xy9">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="bg-gunmetal.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="yCo-bd-pF6"/>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="yCo-bd-pF6" firstAttribute="bottom" secondItem="UXh-a6-Xy9" secondAttribute="bottom" type="default" id="tXm-3p-sMa"/>
+                            <constraint firstItem="yCo-bd-pF6" firstAttribute="leading" secondItem="UXh-a6-Xy9" secondAttribute="leading" type="default" id="yy0-5k-GOY"/>
+                            <constraint firstItem="yCo-bd-pF6" firstAttribute="top" secondItem="UXh-a6-Xy9" secondAttribute="top" type="default" id="zQS-3J-oBs"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Generate QR" id="ukB-O5-NeQ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q7u-cK-Pif" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="223" y="898"/>
+        </scene>
+        <!--View Controller - Settings-->
+        <scene sceneID="1yh-kP-uTm">
+            <objects>
+                <viewController id="x1B-2k-4hM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yf4-Ym-aBt">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="HiC-kh-Mzg"/>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="HiC-kh-Mzg" firstAttribute="top" secondItem="yf4-Ym-aBt" secondAttribute="top" type="default" id="0Zb-AQ-adV"/>
+                            <constraint firstItem="HiC-kh-Mzg" firstAttribute="bottom" secondItem="yf4-Ym-aBt" secondAttribute="bottom" type="default" id="Nwn-He-Ay9"/>
+                            <constraint firstItem="HiC-kh-Mzg" firstAttribute="leading" secondItem="yf4-Ym-aBt" secondAttribute="leading" type="default" id="ywT-bE-TNK"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Settings" id="qmX-6Q-g3b"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vpt-gR-B2a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1317" y="1105"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="VEV-uC-Tbo">
+            <objects>
+                <tabBarController id="Skk-xI-lba" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="w4z-wO-lOx">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="tWp-gL-dGZ" kind="relationship" relationship="viewControllers" id="LuD-aS-xDC"/>
+                        <segue destination="GdZ-eC-ZMK" kind="relationship" relationship="viewControllers" id="zxx-Mq-uok"/>
+                        <segue destination="WYR-Ux-a1q" kind="relationship" relationship="viewControllers" id="EH1-QF-78R"/>
+                        <segue destination="c7Q-0g-UQU" kind="relationship" relationship="viewControllers" id="aal-Zi-5EE"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8WK-WM-fhB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="157" y="187"/>
+        </scene>
+        <!--Navigation Controller - Scan-->
+        <scene sceneID="D6I-9M-1JH">
+            <objects>
+                <navigationController id="tWp-gL-dGZ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Scan" id="7je-h5-F7e"/>
+                    <toolbarItems/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackOpaque" id="eZy-Ch-OZK">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackTranslucent" id="EV3-aP-ZGf">
+                        <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="2" kind="relationship" relationship="rootViewController" id="aGI-ie-YOB"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UeX-9m-qa7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="713" y="-303"/>
+        </scene>
+        <!--Navigation Controller - History-->
+        <scene sceneID="BVM-3M-O9a">
+            <objects>
+                <navigationController id="WYR-Ux-a1q" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="History" id="cdv-JN-bbW"/>
+                    <toolbarItems/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackOpaque" id="X7a-VA-a4Z">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="g6g-sw-h0t" kind="relationship" relationship="rootViewController" id="B53-mr-B9x"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6R4-rY-1Cp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1533" y="392"/>
+        </scene>
+        <!--Navigation Controller - Settings-->
+        <scene sceneID="OpX-Af-IYS">
+            <objects>
+                <navigationController id="c7Q-0g-UQU" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Settings" image="settings.png" id="5fx-l6-6jc"/>
+                    <toolbarItems/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackOpaque" id="3nE-3O-ZN3">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="x1B-2k-4hM" kind="relationship" relationship="rootViewController" id="j73-Ih-9GC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0lp-Mb-n1w" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="915" y="1105"/>
+        </scene>
+        <!--Navigation Controller - Generate-->
+        <scene sceneID="l58-xv-7X7">
+            <objects>
+                <navigationController id="GdZ-eC-ZMK" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Generate" image="generate.png" id="Gg5-4R-mtQ"/>
+                    <toolbarItems/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackOpaque" id="W7J-SW-X80">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="4r4-Sl-I4p" kind="relationship" relationship="rootViewController" id="wZk-1h-4R2"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BEs-QS-CMW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-303" y="898"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="bg-gunmetal.jpg" width="320" height="480"/>
+        <image name="bg.png" width="320" height="480"/>
+        <image name="button.png" width="250" height="250"/>
+        <image name="generate.png" width="16" height="16"/>
+        <image name="settings.png" width="16" height="16"/>
+        <image name="standard-big.png" width="290" height="47"/>
+    </resources>
+    <classes>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="ScanViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ScanViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="scanFromCamara:"/>
+                <relationship kind="action" name="scanFromGallary:"/>
+            </relationships>
+        </class>
+    </classes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination"/>
+    </simulatedMetricsContainer>
+</document>

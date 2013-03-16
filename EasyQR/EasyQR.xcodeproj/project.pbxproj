@@ -1,0 +1,330 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2C78719D16F199C60066486B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C78719C16F199C60066486B /* UIKit.framework */; };
+		2C78719F16F199C60066486B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C78719E16F199C60066486B /* Foundation.framework */; };
+		2C7871A116F199C60066486B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C7871A016F199C60066486B /* CoreGraphics.framework */; };
+		2C7871A716F199C60066486B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2C7871A516F199C60066486B /* InfoPlist.strings */; };
+		2C7871A916F199C60066486B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7871A816F199C60066486B /* main.m */; };
+		2C7871AD16F199C60066486B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7871AC16F199C60066486B /* AppDelegate.m */; };
+		2C7871AF16F199C60066486B /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C7871AE16F199C60066486B /* Default.png */; };
+		2C7871B116F199C60066486B /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C7871B016F199C60066486B /* Default@2x.png */; };
+		2C7871B316F199C60066486B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C7871B216F199C60066486B /* Default-568h@2x.png */; };
+		2C7871B916F199C60066486B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7871B816F199C60066486B /* ViewController.m */; };
+		2C7871CC16F19A400066486B /* standard-big@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C7871C516F19A400066486B /* standard-big@2x.png */; };
+		2C7871CD16F19A400066486B /* standard-big.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C7871C616F19A400066486B /* standard-big.png */; };
+		2C7871CE16F19A400066486B /* ScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7871C716F19A400066486B /* ScanViewController.m */; };
+		2C7871CF16F19A400066486B /* button.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C7871C916F19A400066486B /* button.png */; };
+		2C7871D016F19A400066486B /* bg-gunmetal@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2C7871CA16F19A400066486B /* bg-gunmetal@2x.jpg */; };
+		2C7871D116F19A400066486B /* bg-gunmetal.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2C7871CB16F19A400066486B /* bg-gunmetal.jpg */; };
+		2C7871E016F19B9D0066486B /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C7871DF16F19B9D0066486B /* MainStoryboard.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2C78719816F199C60066486B /* EasyQR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyQR.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C78719C16F199C60066486B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		2C78719E16F199C60066486B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		2C7871A016F199C60066486B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		2C7871A416F199C60066486B /* EasyQR-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EasyQR-Info.plist"; sourceTree = "<group>"; };
+		2C7871A616F199C60066486B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2C7871A816F199C60066486B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2C7871AA16F199C60066486B /* EasyQR-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EasyQR-Prefix.pch"; sourceTree = "<group>"; };
+		2C7871AB16F199C60066486B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		2C7871AC16F199C60066486B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		2C7871AE16F199C60066486B /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		2C7871B016F199C60066486B /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		2C7871B216F199C60066486B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		2C7871B716F199C60066486B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		2C7871B816F199C60066486B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		2C7871C516F19A400066486B /* standard-big@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "standard-big@2x.png"; sourceTree = "<group>"; };
+		2C7871C616F19A400066486B /* standard-big.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "standard-big.png"; sourceTree = "<group>"; };
+		2C7871C716F19A400066486B /* ScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanViewController.m; sourceTree = "<group>"; };
+		2C7871C816F19A400066486B /* ScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScanViewController.h; sourceTree = "<group>"; };
+		2C7871C916F19A400066486B /* button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button.png; sourceTree = "<group>"; };
+		2C7871CA16F19A400066486B /* bg-gunmetal@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "bg-gunmetal@2x.jpg"; sourceTree = "<group>"; };
+		2C7871CB16F19A400066486B /* bg-gunmetal.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "bg-gunmetal.jpg"; sourceTree = "<group>"; };
+		2C7871D416F19B090066486B /* ScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScanViewController.h; sourceTree = "<group>"; };
+		2C7871D516F19B090066486B /* ScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanViewController.m; sourceTree = "<group>"; };
+		2C7871DF16F19B9D0066486B /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2C78719516F199C60066486B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C78719D16F199C60066486B /* UIKit.framework in Frameworks */,
+				2C78719F16F199C60066486B /* Foundation.framework in Frameworks */,
+				2C7871A116F199C60066486B /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2C78718D16F199C60066486B = {
+			isa = PBXGroup;
+			children = (
+				2C7871A216F199C60066486B /* EasyQR */,
+				2C78719B16F199C60066486B /* Frameworks */,
+				2C78719916F199C60066486B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2C78719916F199C60066486B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2C78719816F199C60066486B /* EasyQR.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2C78719B16F199C60066486B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2C78719C16F199C60066486B /* UIKit.framework */,
+				2C78719E16F199C60066486B /* Foundation.framework */,
+				2C7871A016F199C60066486B /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2C7871A216F199C60066486B /* EasyQR */ = {
+			isa = PBXGroup;
+			children = (
+				2C7871C316F19A210066486B /* Resources */,
+				2C7871AB16F199C60066486B /* AppDelegate.h */,
+				2C7871AC16F199C60066486B /* AppDelegate.m */,
+				2C7871B716F199C60066486B /* ViewController.h */,
+				2C7871B816F199C60066486B /* ViewController.m */,
+				2C7871DF16F19B9D0066486B /* MainStoryboard.storyboard */,
+				2C7871D416F19B090066486B /* ScanViewController.h */,
+				2C7871D516F19B090066486B /* ScanViewController.m */,
+				2C7871A316F199C60066486B /* Supporting Files */,
+			);
+			path = EasyQR;
+			sourceTree = "<group>";
+		};
+		2C7871A316F199C60066486B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2C7871A416F199C60066486B /* EasyQR-Info.plist */,
+				2C7871A516F199C60066486B /* InfoPlist.strings */,
+				2C7871A816F199C60066486B /* main.m */,
+				2C7871AA16F199C60066486B /* EasyQR-Prefix.pch */,
+				2C7871AE16F199C60066486B /* Default.png */,
+				2C7871B016F199C60066486B /* Default@2x.png */,
+				2C7871B216F199C60066486B /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2C7871C316F19A210066486B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2C7871C516F19A400066486B /* standard-big@2x.png */,
+				2C7871C616F19A400066486B /* standard-big.png */,
+				2C7871C716F19A400066486B /* ScanViewController.m */,
+				2C7871C816F19A400066486B /* ScanViewController.h */,
+				2C7871C916F19A400066486B /* button.png */,
+				2C7871CA16F19A400066486B /* bg-gunmetal@2x.jpg */,
+				2C7871CB16F19A400066486B /* bg-gunmetal.jpg */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2C78719716F199C60066486B /* EasyQR */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2C7871BC16F199C60066486B /* Build configuration list for PBXNativeTarget "EasyQR" */;
+			buildPhases = (
+				2C78719416F199C60066486B /* Sources */,
+				2C78719516F199C60066486B /* Frameworks */,
+				2C78719616F199C60066486B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EasyQR;
+			productName = EasyQR;
+			productReference = 2C78719816F199C60066486B /* EasyQR.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2C78718F16F199C60066486B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = Yongmo;
+			};
+			buildConfigurationList = 2C78719216F199C60066486B /* Build configuration list for PBXProject "EasyQR" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 2C78718D16F199C60066486B;
+			productRefGroup = 2C78719916F199C60066486B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2C78719716F199C60066486B /* EasyQR */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2C78719616F199C60066486B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C7871A716F199C60066486B /* InfoPlist.strings in Resources */,
+				2C7871AF16F199C60066486B /* Default.png in Resources */,
+				2C7871B116F199C60066486B /* Default@2x.png in Resources */,
+				2C7871B316F199C60066486B /* Default-568h@2x.png in Resources */,
+				2C7871CC16F19A400066486B /* standard-big@2x.png in Resources */,
+				2C7871CD16F19A400066486B /* standard-big.png in Resources */,
+				2C7871CF16F19A400066486B /* button.png in Resources */,
+				2C7871D016F19A400066486B /* bg-gunmetal@2x.jpg in Resources */,
+				2C7871D116F19A400066486B /* bg-gunmetal.jpg in Resources */,
+				2C7871E016F19B9D0066486B /* MainStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2C78719416F199C60066486B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C7871A916F199C60066486B /* main.m in Sources */,
+				2C7871AD16F199C60066486B /* AppDelegate.m in Sources */,
+				2C7871B916F199C60066486B /* ViewController.m in Sources */,
+				2C7871CE16F19A400066486B /* ScanViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		2C7871A516F199C60066486B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2C7871A616F199C60066486B /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2C7871BA16F199C60066486B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		2C7871BB16F199C60066486B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2C7871BD16F199C60066486B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "EasyQR/EasyQR-Prefix.pch";
+				INFOPLIST_FILE = "EasyQR/EasyQR-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		2C7871BE16F199C60066486B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "EasyQR/EasyQR-Prefix.pch";
+				INFOPLIST_FILE = "EasyQR/EasyQR-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2C78719216F199C60066486B /* Build configuration list for PBXProject "EasyQR" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2C7871BA16F199C60066486B /* Debug */,
+				2C7871BB16F199C60066486B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2C7871BC16F199C60066486B /* Build configuration list for PBXNativeTarget "EasyQR" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2C7871BD16F199C60066486B /* Debug */,
+				2C7871BE16F199C60066486B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2C78718F16F199C60066486B /* Project object */;
+}
