@@ -14,15 +14,17 @@
 
 @implementation ScanViewController
 
+ZBarReaderViewController *camaraReader;
+ZBarReaderController *photoReader;
+
 - (IBAction)scanFromCamara:(id)sender
 {
-    /*
     // ADD: present a barcode reader that scans from the camera feed
-    ZBarReaderViewController *reader = [ZBarReaderViewController new];
-    reader.readerDelegate = self;
-    reader.supportedOrientationsMask = ZBarOrientationMaskAll;
+    camaraReader = [ZBarReaderViewController new];
+    camaraReader.readerDelegate = self;
+    camaraReader.supportedOrientationsMask = ZBarOrientationMaskAll;
     
-    ZBarImageScanner *scanner = reader.scanner;
+    ZBarImageScanner *scanner = camaraReader.scanner;
     // TODO: (optional) additional reader configuration here
     
     // EXAMPLE: disable rarely used I2/5 to improve performance
@@ -31,15 +33,58 @@
                        to: 0];
     
     // present and release the controller
-    [self presentModalViewController: reader
-                            animated: YES];
-    [reader release];
-     */
+    [self presentViewController:camaraReader animated:YES completion:nil];
 }
 
 - (IBAction)scanFromGallary:(id)sender
 {
+    // ADD: present a barcode reader that scans from the gallery
+    ZBarReaderController *photoReader = [ZBarReaderController new];
+    photoReader.readerDelegate = self;
     
+    if([ZBarReaderController isSourceTypeAvailable:
+        UIImagePickerControllerSourceTypePhotoLibrary])
+        photoReader.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    [photoReader.scanner setSymbology: ZBAR_I25
+                          config: ZBAR_CFG_ENABLE
+                              to: 0];
+    
+    [self presentViewController:photoReader animated:YES completion:nil];
+}
+
+- (void) imagePickerController: (UIImagePickerController*) reader
+ didFinishPickingMediaWithInfo: (NSDictionary*) info
+{
+    // ADD: get the decode results
+    id<NSFastEnumeration> results =
+    [info objectForKey: ZBarReaderControllerResults];
+    ZBarSymbol *symbol = nil;
+    for(symbol in results)
+        // EXAMPLE: just grab the first barcode
+        break;
+    
+    // EXAMPLE: do something useful with the barcode image
+    //resultImage.image =
+    //[info objectForKey: UIImagePickerControllerOriginalImage];
+    
+    UIAlertView *alert = [[UIAlertView alloc]
+                          initWithTitle: @"EasyQR"
+                          message: symbol.data  
+                          delegate: nil
+                          cancelButtonTitle:@"OK"
+                          otherButtonTitles:nil];
+    [alert show];
+    
+    if (camaraReader != nil) {
+        [camaraReader dismissViewControllerAnimated:YES completion:nil];
+        camaraReader = nil;
+    }
+    
+    if (photoReader != nil) {
+        [photoReader dismissViewControllerAnimated:YES completion:nil];
+        camaraReader = nil;
+    }
+
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil

@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ScanViewController : UIViewController /*<ZBarReaderDelegate>*/
+@interface ScanViewController : UIViewController <ZBarReaderDelegate>
 
 @end
