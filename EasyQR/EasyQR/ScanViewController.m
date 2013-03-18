@@ -33,7 +33,7 @@ ZBarReaderController *photoReader;
                        to: 0];
     
     // present and release the controller
-    [self presentViewController:camaraReader animated:YES completion:nil];
+    [self presentViewController:camaraReader animated:NO completion:nil];
 }
 
 - (IBAction)scanFromGallary:(id)sender
@@ -67,13 +67,22 @@ ZBarReaderController *photoReader;
     //resultImage.image =
     //[info objectForKey: UIImagePickerControllerOriginalImage];
     
-    UIAlertView *alert = [[UIAlertView alloc]
-                          initWithTitle: @"EasyQR"
-                          message: symbol.data  
-                          delegate: nil
-                          cancelButtonTitle:@"OK"
-                          otherButtonTitles:nil];
-    [alert show];
+
+    if ([self validateUrl:symbol.data]) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:symbol.data]];
+    } else {
+        // Push a view to show up result text
+        UIPasteboard *pb = [UIPasteboard generalPasteboard];
+        [pb setString:symbol.data];
+        
+        UIAlertView *alert = [[UIAlertView alloc]
+                              initWithTitle: @"Scan Result"
+                              message: symbol.data
+                              delegate: nil
+                              cancelButtonTitle:@"Copy"
+                              otherButtonTitles:nil];
+        [alert show];
+    }
     
     if (camaraReader != nil) {
         [camaraReader dismissViewControllerAnimated:YES completion:nil];
@@ -85,6 +94,14 @@ ZBarReaderController *photoReader;
         camaraReader = nil;
     }
 
+}
+
+// Validate if a String is a URL format
+- (BOOL) validateUrl: (NSString *) candidate {
+    NSString *urlRegEx =
+    @"(http|https)://((\\w)*|([0-9]*)|([-|_])*)+([\\.|/]((\\w)*|([0-9]*)|([-|_])*))+";
+    NSPredicate *urlTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", urlRegEx];
+    return [urlTest evaluateWithObject:candidate];
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
