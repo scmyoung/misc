@@ -21,6 +21,7 @@
 @synthesize qrImgView;
 @synthesize textField;
 @synthesize saveBtn;
+@synthesize frameImg;
 
 - (IBAction)generateQR:(id)sender
 {
@@ -64,6 +65,7 @@
         
         // show save button
         saveBtn.hidden = NO;
+        frameImg.hidden = NO;
     } else {
         UIAlertView *alert = [[UIAlertView alloc]
                               initWithTitle: @"Generate QR"
@@ -122,13 +124,13 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    //[textField becomeFirstResponder];
+    [textField becomeFirstResponder];
     self.textField.delegate = self;
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    [textField becomeFirstResponder];
+    //[textField becomeFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning

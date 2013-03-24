@@ -13,5 +13,6 @@
 @property (nonatomic, strong) IBOutlet UIImageView *qrImgView;
 @property (nonatomic, strong) IBOutlet UIButton *saveBtn;
 @property (nonatomic, strong) IBOutlet UITextField *textField;
+@property (nonatomic, strong) IBOutlet UIImageView *frameImg;
 
 @end

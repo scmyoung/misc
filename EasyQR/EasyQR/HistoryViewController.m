@@ -32,16 +32,20 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    UIColor *color = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg-gunmetal.jpg"]];
-    [self.view setBackgroundColor:color];
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
+    
     [historyTableView setDelegate:self];
     [historyTableView setDataSource:self];
     [historyTableView setBackgroundColor:[UIColor clearColor]];
     [historyTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    UIColor *color = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg-gunmetal.jpg"]];
+    [self.view setBackgroundColor:color];
+    //historyTableView.hidden = YES;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -59,9 +63,9 @@
     
     Update* update = [updates objectAtIndex:indexPath.row];
     
-    [cell.nameLabel setText:update.name];
-    [cell.dateLabel setText:update.date];
-    [cell.avatarImageView setImage:update.avatar];
+    [cell.nameLabel setText:@"hello"];
+    [cell.dateLabel setText:@"2013-03-13"];
+    [cell.avatarImageView setImage:[UIImage imageNamed:@"button.png"]];
     
     return cell;    
 }
@@ -75,12 +79,13 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [updates count];
+    //return [updates count];
+    return 1;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self performSegueWithIdentifier:@"detail" sender:self];
+    //[self performSegueWithIdentifier:@"detail" sender:self];
 }
 
 @end
