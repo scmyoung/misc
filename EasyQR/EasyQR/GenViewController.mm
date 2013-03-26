@@ -99,6 +99,32 @@
 - (IBAction)saveImage:(id)sender
 {
     UIImageWriteToSavedPhotosAlbum(qrcodeImage, self, @selector(thisImage:hasBeenSavedInPhotoAlbumWithError:usingContextInfo:), nil);
+    
+    dispatch_async( dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSFileManager *fileMgr = [[NSFileManager alloc] init];
+
+/*
+        NSString *filePath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDirectory, YES) objectAtIndex:0] stringByAppendingPathComponent:fileObject];
+            
+            // If check for file existance
+            if ([fileMgr fileExistsAtPath:filePath] == NO) {
+                NSLog(@"[scm]: Download ... %@", fileObject);
+                
+                NSString *strUrl = [[NSString alloc] initWithFormat:@"%@/%@/%@/%@/%@", SERVER_IP,
+                                    @"campaign", CAMPAIGN_FOLDER, campaign, fileObject];
+                NSData *fileData = [NSData dataWithContentsOfURL:[NSURL URLWithString:strUrl]];
+                [fileData writeToFile:filePath atomically:YES];
+                
+                if ([fileMgr fileExistsAtPath:filePath] && [fileObject isEqualToString:SCM_AD_XML])
+
+            }
+        }
+ */
+        dispatch_async( dispatch_get_main_queue(), ^{
+        
+        });
+    });
+
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)tf {

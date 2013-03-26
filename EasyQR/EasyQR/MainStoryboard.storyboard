@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2843" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Skk-xI-lba">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Skk-xI-lba">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1929"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
         <!--Scan View Controller - Scan QR-->
@@ -239,24 +239,46 @@
             </objects>
             <point key="canvasLocation" x="223" y="898"/>
         </scene>
-        <!--View Controller - Settings-->
+        <!--Settings View Controller - Settings-->
         <scene sceneID="1yh-kP-uTm">
             <objects>
-                <viewController id="x1B-2k-4hM" sceneMemberID="viewController">
+                <viewController id="x1B-2k-4hM" customClass="SettingsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yf4-Ym-aBt">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="bg-gunmetal.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="HiC-kh-Mzg"/>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tdS-M7-ZdQ">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="216" id="Q56-y8-00h"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="x1B-2k-4hM" id="Wgc-xG-isU"/>
+                                    <outlet property="delegate" destination="x1B-2k-4hM" id="rMM-eB-5QM"/>
+                                </connections>
+                            </pickerView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="QR Image Size:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T43-8T-xKN">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="HiC-kh-Mzg" firstAttribute="top" secondItem="yf4-Ym-aBt" secondAttribute="top" type="default" id="0Zb-AQ-adV"/>
+                            <constraint firstItem="tdS-M7-ZdQ" firstAttribute="trailing" secondItem="yf4-Ym-aBt" secondAttribute="trailing" type="default" id="IhT-aS-3hf"/>
                             <constraint firstItem="HiC-kh-Mzg" firstAttribute="bottom" secondItem="yf4-Ym-aBt" secondAttribute="bottom" type="default" id="Nwn-He-Ay9"/>
+                            <constraint firstItem="T43-8T-xKN" firstAttribute="leading" secondItem="yf4-Ym-aBt" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="alV-R8-6P8"/>
+                            <constraint firstItem="tdS-M7-ZdQ" firstAttribute="leading" secondItem="yf4-Ym-aBt" secondAttribute="leading" type="default" id="clr-MI-SAM"/>
+                            <constraint firstItem="T43-8T-xKN" firstAttribute="top" secondItem="yf4-Ym-aBt" secondAttribute="top" constant="20" symbolic="YES" type="default" id="gh6-dv-Ipk"/>
+                            <constraint firstItem="tdS-M7-ZdQ" firstAttribute="top" secondItem="yf4-Ym-aBt" secondAttribute="top" constant="64" id="r6a-3b-2U6"/>
                             <constraint firstItem="HiC-kh-Mzg" firstAttribute="leading" secondItem="yf4-Ym-aBt" secondAttribute="leading" type="default" id="ywT-bE-TNK"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="qmX-6Q-g3b"/>
+                    <connections>
+                        <outlet property="imgSizePickerView" destination="tdS-M7-ZdQ" id="Cva-jJ-GTW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vpt-gR-B2a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -411,6 +433,12 @@
             <relationships>
                 <relationship kind="action" name="scanFromCamara:"/>
                 <relationship kind="action" name="scanFromGallary:"/>
+            </relationships>
+        </class>
+        <class className="SettingsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="imgSizePickerView" candidateClass="UIPickerView"/>
             </relationships>
         </class>
         <class className="ThemeListCell" superclassName="UITableViewCell">
