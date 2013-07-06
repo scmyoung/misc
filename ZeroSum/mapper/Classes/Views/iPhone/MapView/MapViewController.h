@@ -10,4 +10,7 @@
 
 @interface MapViewController : UIViewController
 
+
+- (void)setLocArray:(NSArray *)json;
+
 @end

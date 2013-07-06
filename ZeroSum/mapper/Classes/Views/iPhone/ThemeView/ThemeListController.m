@@ -11,6 +11,7 @@
 #import "DataLoader.h"
 #import "Model.h"
 #import "DetailThemeController.h"
+#import "MapViewController.h"
 #import "AppDelegate.h"
 
 #define GOOGLE_PLACE_BASE_URL @"https://maps.googleapis.com/maps/api/place/nearbysearch/"
@@ -76,6 +77,7 @@
     //The results from Google will be an array obtained from the NSDictionary object with the key "results".
     googlePlaces = [json objectForKey:@"results"];
     
+    /*
     NSInteger a = [googlePlaces count];
     
     for (int i=0; i<a; i++) {
@@ -86,6 +88,7 @@
         
         
     }
+    */
     
 }
 
@@ -225,7 +228,8 @@
         [detail setNewName:Name];
         [detail setNewaddress:Address];
     } else if ([[segue identifier] isEqualToString:@"MapViewId"]) {
-    
+        MapViewController *mapViewController = segue.destinationViewController;
+        [mapViewController setLocArray:googlePlaces];
     }
 }
 

@@ -216,6 +216,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="지도로 보세요" id="as2-Vo-ems"/>
+                    <connections>
+                        <outlet property="mapView" destination="PPG-9b-kjo" id="3DN-6j-NhT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wSy-lN-B6H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -441,6 +444,9 @@
         </class>
         <class className="MapViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MapViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
+            </relationships>
         </class>
         <class className="ShackViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ShackViewController.h"/>
