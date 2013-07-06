@@ -27,14 +27,7 @@
     //self.colorSwitcher = [[ColorSwitcher alloc] initWithScheme:@"brown"];
     
     [self customizeGlobalTheme];
- 
-    UIUserInterfaceIdiom idiom = [[UIDevice currentDevice] userInterfaceIdiom];
-    
-    if (idiom == UIUserInterfaceIdiomPad) 
-    {
-        [self iPadInit];
-    } else {
-    }
+
     
     // Override point for customization after application launch.
     return YES;

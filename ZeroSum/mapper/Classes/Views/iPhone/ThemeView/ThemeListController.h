@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface ThemeListController : UIViewController<UITableViewDelegate, UITableViewDataSource>
+
+
+@interface ThemeListController : UIViewController<UITableViewDelegate, UITableViewDataSource,CLLocationManagerDelegate>
 
 
 @property (nonatomic, strong) IBOutlet UITableView* tableListView;
@@ -21,5 +24,6 @@
 
 @property (nonatomic, retain) NSArray* models;
 
+- (void)setGooglePlaceJson:(NSData *)data;
 
 @end

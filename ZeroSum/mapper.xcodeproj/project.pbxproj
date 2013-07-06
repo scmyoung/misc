@@ -29,6 +29,9 @@
 		7F936D4D15AB4BF300F59E91 /* tabbar-item@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F936D4B15AB4BF300F59E91 /* tabbar-item@2x.png */; };
 		7F9B87EB1614F005005A2B50 /* bg-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F9B87EA1614F005005A2B50 /* bg-568h@2x.png */; };
 		7F9B87ED1614F00B005A2B50 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F9B87EC1614F00B005A2B50 /* Default-568h@2x.png */; };
+		BF5A972C17882296002A75F5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF5A972B17882296002A75F5 /* CoreLocation.framework */; };
+		BF5A973417883E56002A75F5 /* ShackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5A973317883E56002A75F5 /* ShackViewController.m */; };
+		BF5A973617883ED9002A75F5 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF5A973517883ED9002A75F5 /* AudioToolbox.framework */; };
 		EC16BC471518BBA4005AA9E9 /* ipad-bg-left@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC16BC331518BBA4005AA9E9 /* ipad-bg-left@2x.png */; };
 		EC16BC481518BBA4005AA9E9 /* ipad-bg-right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC16BC341518BBA4005AA9E9 /* ipad-bg-right@2x.png */; };
 		EC16BC491518BBA4005AA9E9 /* ipad-blue-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC16BC351518BBA4005AA9E9 /* ipad-blue-button@2x.png */; };
@@ -165,6 +168,10 @@
 		7F936D4B15AB4BF300F59E91 /* tabbar-item@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar-item@2x.png"; sourceTree = "<group>"; };
 		7F9B87EA1614F005005A2B50 /* bg-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-568h@2x.png"; sourceTree = "<group>"; };
 		7F9B87EC1614F00B005A2B50 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		BF5A972B17882296002A75F5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		BF5A973217883E56002A75F5 /* ShackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShackViewController.h; sourceTree = "<group>"; };
+		BF5A973317883E56002A75F5 /* ShackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShackViewController.m; sourceTree = "<group>"; };
+		BF5A973517883ED9002A75F5 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		EC16BC331518BBA4005AA9E9 /* ipad-bg-left@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ipad-bg-left@2x.png"; sourceTree = "<group>"; };
 		EC16BC341518BBA4005AA9E9 /* ipad-bg-right@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ipad-bg-right@2x.png"; sourceTree = "<group>"; };
 		EC16BC351518BBA4005AA9E9 /* ipad-blue-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ipad-blue-button@2x.png"; sourceTree = "<group>"; };
@@ -276,6 +283,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF5A973617883ED9002A75F5 /* AudioToolbox.framework in Frameworks */,
+				BF5A972C17882296002A75F5 /* CoreLocation.framework in Frameworks */,
 				EC16BC5D1518C352005AA9E9 /* CoreImage.framework in Frameworks */,
 				ECF56F7614D95D6900670CBA /* QuartzCore.framework in Frameworks */,
 				ECC2839F14D075BB002AE654 /* MapKit.framework in Frameworks */,
@@ -419,6 +428,7 @@
 		7F8ECF19161247DE00F1807C /* iPhone */ = {
 			isa = PBXGroup;
 			children = (
+				BF5A973117883E56002A75F5 /* ShackView */,
 				7F8ECF1A161247DE00F1807C /* DetailView */,
 				7F8ECF20161247DE00F1807C /* ThemeView */,
 			);
@@ -443,6 +453,15 @@
 			path = ThemeView;
 			sourceTree = "<group>";
 		};
+		BF5A973117883E56002A75F5 /* ShackView */ = {
+			isa = PBXGroup;
+			children = (
+				BF5A973217883E56002A75F5 /* ShackViewController.h */,
+				BF5A973317883E56002A75F5 /* ShackViewController.m */,
+			);
+			path = ShackView;
+			sourceTree = "<group>";
+		};
 		EC1EF59114CF042C005589AA = {
 			isa = PBXGroup;
 			children = (
@@ -463,6 +482,8 @@
 		EC1EF59F14CF042D005589AA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BF5A973517883ED9002A75F5 /* AudioToolbox.framework */,
+				BF5A972B17882296002A75F5 /* CoreLocation.framework */,
 				EC16BC5C1518C352005AA9E9 /* CoreImage.framework */,
 				ECF56F7514D95D6900670CBA /* QuartzCore.framework */,
 				ECC2839E14D075BB002AE654 /* MapKit.framework */,
@@ -783,6 +804,7 @@
 				7F8ECF2B161247DE00F1807C /* ThemeListCell.m in Sources */,
 				7F8ECF2E161247DE00F1807C /* DetailThemeController.m in Sources */,
 				7F8ECF30161247DE00F1807C /* ThemeListController.m in Sources */,
+				BF5A973417883E56002A75F5 /* ShackViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
