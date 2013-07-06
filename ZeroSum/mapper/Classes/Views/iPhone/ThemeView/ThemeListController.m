@@ -29,14 +29,15 @@
     
     NSDictionary *oneRes;
     NSString *name;
-    NSString *geometry_lat;
-    NSString *geometry_lng ;
+    float geometry_lat;
+    float geometry_lng ;
     NSString *formatted_address;
     NSString *rating ;
 
     NSData *googleJson;
     
     NSArray *googlePlaces;
+    CLLocation *currentLocation;
 }
 
 - (void)customizeTabbar;
@@ -50,6 +51,12 @@
 @synthesize tableListView, models, furthestLabel, nearestLabel;
 
 #pragma mark - View lifecycle
+
+- (void)setCurrentLocation:(CLLocation *)curLoc
+{
+    currentLocation = curLoc;
+    
+}
 
 - (void)setGooglePlaceJson:(NSData *)data
 {
@@ -68,18 +75,12 @@
     NSInteger a = [googlePlaces count];
     
     for (int i=0; i<a; i++) {
-        // NSLog(@"Google Data: %@", [places objectAtIndex:i]);
         oneRes = [googlePlaces objectAtIndex:i];
         name = [oneRes objectForKey:@"name"];
-        geometry_lat = [[[oneRes objectForKey:@"geometry"] objectForKey:@"location"] objectForKey:@"lat"];
-        geometry_lng = [[[oneRes objectForKey:@"geometry"] objectForKey:@"location"] objectForKey:@"lng"];
         formatted_address = [oneRes objectForKey:@"vicinity"];
         rating = [oneRes objectForKey:@"rating"];
         
-        NSLog(@"name - %@", name);
-        NSLog(@"address - %@", formatted_address);
-        NSLog(@"rating - %@", rating);
-        NSLog(@"\n");
+        
     }
     
 }
@@ -158,14 +159,24 @@
     ThemeListCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
-            
+    
+    geometry_lat = [[[[[googlePlaces objectAtIndex:indexPath.row] objectForKey:@"geometry"] objectForKey:@"location"] objectForKey:@"lat"] doubleValue];
+    geometry_lng = [[[[[googlePlaces objectAtIndex:indexPath.row] objectForKey:@"geometry"] objectForKey:@"location"] objectForKey:@"lng"] doubleValue];
+    
+    CLLocation * newLocation = [[CLLocation alloc]initWithLatitude: geometry_lat
+                                longitude: geometry_lng];
+    NSLog(@"lat: %f, log: %f", [[[[googlePlaces objectAtIndex:indexPath.row] objectForKey:@"location"] objectForKey:@"lat"] doubleValue], [[[[googlePlaces objectAtIndex:indexPath.row] objectForKey:@"location"] objectForKey:@"lng"] doubleValue]);
+    
+    NSString *Km = [NSString stringWithFormat:@"%0.2f km",[currentLocation distanceFromLocation:newLocation]/1000];
+    NSLog(@"%@", Km);
+    
     NSLog(@"%d", indexPath.row);
     NSDictionary *placeData = [googlePlaces objectAtIndex:indexPath.row];
     [cell.titleLabel setText:[placeData objectForKey:@"name"]];
     [cell.locationLabel setText:[placeData objectForKey:@"vicinity"]];
     [cell.paidTypeLabel setText:@"free"];
     [cell.distanceMetricLabel setText:@"distance"];
-    [cell.distanceLabel setText:@"1.3km"];
+    [cell.distanceLabel setText:Km];
     
     [cell.paidTypeLabel setTextColor:[[AppDelegate instance].colorSwitcher textColor]];
     [cell.locationLabel setTextColor:[[AppDelegate instance].colorSwitcher textColor]];

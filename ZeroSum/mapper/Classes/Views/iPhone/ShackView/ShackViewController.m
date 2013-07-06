@@ -33,6 +33,7 @@
     NSString *rating ;
     
     NSData *googlePlaceJson;
+    CLLocation *loc;
 
 }
 
@@ -103,7 +104,7 @@
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
-    CLLocation *loc =  [locations lastObject];
+    loc =  [locations lastObject];
     NSLog(@"x: %f y: %f", loc.coordinate.latitude, loc.coordinate.longitude);
     
     location = [[NSString alloc] initWithFormat:@"%f,%f", loc.coordinate.latitude, loc.coordinate.longitude];
@@ -134,6 +135,7 @@
         
         // Pass any objects to the view controller here, like...
         [vc setGooglePlaceJson:googlePlaceJson];
+        [vc setCurrentLocation:loc];
     }
 }
 

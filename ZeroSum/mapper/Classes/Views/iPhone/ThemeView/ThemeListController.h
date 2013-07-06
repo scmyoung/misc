@@ -21,5 +21,7 @@
 @property (nonatomic, retain) NSArray* models;
 
 - (void)setGooglePlaceJson:(NSData *)data;
+- (void)setCurrentLocation:(CLLocation *)curLoc;
+
 
 @end
