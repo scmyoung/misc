@@ -22,7 +22,7 @@
             </objects>
             <point key="canvasLocation" x="1765" y="144"/>
         </scene>
-        <!--Theme List Controller-->
+        <!--Theme List Controller - 근처 맛집-->
         <scene sceneID="IVi-d4-CZJ">
             <objects>
                 <viewController id="odq-nM-s5L" customClass="ThemeListController" sceneMemberID="viewController">
@@ -31,7 +31,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="86" sectionHeaderHeight="22" sectionFooterHeight="22" id="h1U-M2-7ld">
-                                <rect key="frame" x="0.0" y="22" width="320" height="345"/>
+                                <rect key="frame" x="0.0" y="22" width="320" height="394"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -180,33 +180,19 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <tabBar contentMode="scaleToFill" id="EBl-WA-bWQ">
-                                <rect key="frame" x="0.0" y="367" width="320" height="49"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <items>
-                                    <tabBarItem title="Label" image="tabbar-icon1.png" id="ojs-dp-Ilz">
-                                        <inset key="imageInsets" minX="0.0" minY="1" maxX="0.0" maxY="0.0"/>
-                                    </tabBarItem>
-                                    <tabBarItem title="Label" image="tabbar-icon2.png" id="huE-Id-cse">
-                                        <inset key="imageInsets" minX="0.0" minY="1" maxX="0.0" maxY="0.0"/>
-                                    </tabBarItem>
-                                    <tabBarItem title="Label" image="tabbar-icon3.png" id="giC-V0-8YO">
-                                        <inset key="imageInsets" minX="0.0" minY="1" maxX="0.0" maxY="0.0"/>
-                                    </tabBarItem>
-                                    <tabBarItem title="Label" image="tabbar-icon4.png" id="hPo-gv-yDw">
-                                        <inset key="imageInsets" minX="0.0" minY="1" maxX="0.0" maxY="0.0"/>
-                                    </tabBarItem>
-                                </items>
-                            </tabBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="cqu-iz-zzT"/>
+                    <navigationItem key="navigationItem" title="근처 맛집" id="cqu-iz-zzT">
+                        <barButtonItem key="rightBarButtonItem" title="map" id="E5m-n2-Azg">
+                            <connections>
+                                <segue destination="uI6-DI-AZT" kind="push" identifier="MapViewId" id="FkD-XZ-p0B"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="furthestLabel" destination="uEL-TK-DoJ" id="ZJR-IO-Jsq"/>
                         <outlet property="nearestLabel" destination="CCl-gG-SLh" id="K0s-cI-50x"/>
-                        <outlet property="tabBar" destination="EBl-WA-bWQ" id="DdZ-22-gBh"/>
                         <outlet property="tableListView" destination="h1U-M2-7ld" id="KaA-P8-Gqw"/>
                     </connections>
                 </viewController>
@@ -214,7 +200,28 @@
             </objects>
             <point key="canvasLocation" x="2166" y="144"/>
         </scene>
-        <!--Detail Theme Controller-->
+        <!--Map View Controller - 지도로 보세요-->
+        <scene sceneID="6PI-Pz-kcC">
+            <objects>
+                <viewController id="uI6-DI-AZT" customClass="MapViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NEY-18-NG4">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="PPG-9b-kjo">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="지도로 보세요" id="as2-Vo-ems"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wSy-lN-B6H" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2382" y="737"/>
+        </scene>
+        <!--Detail Theme Controller - 여깁니다-->
         <scene sceneID="Q0Q-oz-F1f">
             <objects>
                 <viewController id="RXE-lm-byD" customClass="DetailThemeController" sceneMemberID="viewController">
@@ -372,7 +379,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="110-Nl-b6Z"/>
+                    <navigationItem key="navigationItem" title="여깁니다" id="110-Nl-b6Z"/>
                     <connections>
                         <outlet property="distanceLabel" destination="6mS-uQ-F8V" id="Z2I-Ie-tDA"/>
                         <outlet property="distanceMetricLabel" destination="lW2-4U-Z8N" id="ooB-Ha-wsQ"/>
@@ -416,11 +423,48 @@
         <image name="grey-titlebar.png" width="320" height="26"/>
         <image name="list-item.png" width="311" height="75"/>
         <image name="map-details.png" width="320" height="88"/>
-        <image name="tabbar-icon1.png" width="26" height="26"/>
-        <image name="tabbar-icon2.png" width="28" height="28"/>
-        <image name="tabbar-icon3.png" width="26" height="31"/>
-        <image name="tabbar-icon4.png" width="16" height="29"/>
     </resources>
+    <classes>
+        <class className="DetailThemeController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DetailThemeController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="distanceLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="distanceMetricLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="furthestLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="locationLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
+                <relationship kind="outlet" name="nearestLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="paidTypeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="zipCodeLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="MapViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MapViewController.h"/>
+        </class>
+        <class className="ShackViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ShackViewController.h"/>
+        </class>
+        <class className="ThemeListCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ThemeListCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="distanceLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="distanceMetricLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="locationLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="paidTypeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ThemeListController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ThemeListController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="furthestLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="nearestLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="tabBar" candidateClass="UITabBar"/>
+                <relationship kind="outlet" name="tableListView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

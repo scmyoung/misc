@@ -32,6 +32,7 @@
 		BF5A972C17882296002A75F5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF5A972B17882296002A75F5 /* CoreLocation.framework */; };
 		BF5A973417883E56002A75F5 /* ShackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5A973317883E56002A75F5 /* ShackViewController.m */; };
 		BF5A973617883ED9002A75F5 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF5A973517883ED9002A75F5 /* AudioToolbox.framework */; };
+		BF5A973D1788828C002A75F5 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5A973C1788828C002A75F5 /* MapViewController.m */; };
 		EC16BC471518BBA4005AA9E9 /* ipad-bg-left@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC16BC331518BBA4005AA9E9 /* ipad-bg-left@2x.png */; };
 		EC16BC481518BBA4005AA9E9 /* ipad-bg-right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC16BC341518BBA4005AA9E9 /* ipad-bg-right@2x.png */; };
 		EC16BC491518BBA4005AA9E9 /* ipad-blue-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC16BC351518BBA4005AA9E9 /* ipad-blue-button@2x.png */; };
@@ -171,6 +172,8 @@
 		BF5A973217883E56002A75F5 /* ShackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShackViewController.h; sourceTree = "<group>"; };
 		BF5A973317883E56002A75F5 /* ShackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShackViewController.m; sourceTree = "<group>"; };
 		BF5A973517883ED9002A75F5 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		BF5A973B1788828C002A75F5 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		BF5A973C1788828C002A75F5 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		EC16BC331518BBA4005AA9E9 /* ipad-bg-left@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ipad-bg-left@2x.png"; sourceTree = "<group>"; };
 		EC16BC341518BBA4005AA9E9 /* ipad-bg-right@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ipad-bg-right@2x.png"; sourceTree = "<group>"; };
 		EC16BC351518BBA4005AA9E9 /* ipad-blue-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ipad-blue-button@2x.png"; sourceTree = "<group>"; };
@@ -417,6 +420,7 @@
 		7F8ECF19161247DE00F1807C /* iPhone */ = {
 			isa = PBXGroup;
 			children = (
+				BF5A973A17888273002A75F5 /* MapView */,
 				BF5A973117883E56002A75F5 /* ShackView */,
 				7F8ECF1A161247DE00F1807C /* DetailView */,
 				7F8ECF20161247DE00F1807C /* ThemeView */,
@@ -449,6 +453,15 @@
 				BF5A973317883E56002A75F5 /* ShackViewController.m */,
 			);
 			path = ShackView;
+			sourceTree = "<group>";
+		};
+		BF5A973A17888273002A75F5 /* MapView */ = {
+			isa = PBXGroup;
+			children = (
+				BF5A973B1788828C002A75F5 /* MapViewController.h */,
+				BF5A973C1788828C002A75F5 /* MapViewController.m */,
+			);
+			path = MapView;
 			sourceTree = "<group>";
 		};
 		EC1EF59114CF042C005589AA = {
@@ -795,6 +808,7 @@
 				7F8ECF2E161247DE00F1807C /* DetailThemeController.m in Sources */,
 				7F8ECF30161247DE00F1807C /* ThemeListController.m in Sources */,
 				BF5A973417883E56002A75F5 /* ShackViewController.m in Sources */,
+				BF5A973D1788828C002A75F5 /* MapViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

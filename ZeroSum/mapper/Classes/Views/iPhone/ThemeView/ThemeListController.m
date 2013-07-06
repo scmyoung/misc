@@ -217,14 +217,16 @@
 
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"detail"]) {
+        DetailThemeController* detail = segue.destinationViewController;
+        
+        //Model* model = models[[[tableListView indexPathForSelectedRow] row]];
+        [detail setNewLocal:newLocation];
+        [detail setNewName:Name];
+        [detail setNewaddress:Address];
+    } else if ([[segue identifier] isEqualToString:@"MapViewId"]) {
     
-    DetailThemeController* detail = segue.destinationViewController;
-    
-    //Model* model = models[[[tableListView indexPathForSelectedRow] row]];
-    [detail setNewLocal:newLocation];
-    [detail setNewName:Name];
-    [detail setNewaddress:Address];
-     
+    }
 }
 
 
