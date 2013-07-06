@@ -230,6 +230,7 @@
     } else if ([[segue identifier] isEqualToString:@"MapViewId"]) {
         MapViewController *mapViewController = segue.destinationViewController;
         [mapViewController setLocArray:googlePlaces];
+        [mapViewController setCenter:currentLocation];
     }
 }
 

@@ -13,6 +13,9 @@
 @interface MapViewController () {
     NSArray *googleJson;
     IBOutlet MKMapView* mapView;
+    float geometry_lat;
+    float geometry_lng ;
+    CLLocation *myLocation;
 
 }
 
@@ -24,6 +27,11 @@
 {
     googleJson = json;
 }
+-(void)setCenter:(CLLocation *)location
+{
+    myLocation = location;
+}
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -40,26 +48,29 @@
 	// Do any additional setup after loading the view.
     
     for (int i=0; i<[googleJson count]; i++) {
-        /*
-        Annotation *annotation = [[Annotation alloc] initWithLatitude:newLocation.coordinate.latitude
-                                                         andLongitude:newLocation.coordinate.longitude];
+        geometry_lat = [[[[[googleJson objectAtIndex:i] objectForKey:@"geometry"] objectForKey:@"location"] objectForKey:@"lat"] doubleValue];
+        geometry_lng = [[[[[googleJson objectAtIndex:i] objectForKey:@"geometry"] objectForKey:@"location"] objectForKey:@"lng"] doubleValue];
+        Annotation *annotation = [[Annotation alloc] initWithLatitude:geometry_lat
+                                                         andLongitude:geometry_lng];
         
         [mapView addAnnotation:annotation];
-        
-        MKCoordinateRegion region;
-        float latitude = newLocation.coordinate.latitude;
-        float longitude = newLocation.coordinate.longitude;
-        
-        region.span.latitudeDelta=1.0/69*0.5;
-        region.span.longitudeDelta=1.0/69*0.5;
-        
-        region.center.latitude=latitude;
-        region.center.longitude=longitude;
-        
-        [mapView setRegion:region animated:YES];
-        [mapView regionThatFits:region];
-         */
+
     }
+            
+    mapView.showsUserLocation=YES;
+        
+    
+    
+    MKCoordinateRegion region;
+    
+    region.span.latitudeDelta=1.0/69*0.5;
+    region.span.longitudeDelta=1.0/69*0.5;
+    
+    
+    region.center = myLocation.coordinate;
+    
+    [mapView setRegion:region animated:YES];
+    [mapView regionThatFits:region];
 }
 
 - (void)didReceiveMemoryWarning
