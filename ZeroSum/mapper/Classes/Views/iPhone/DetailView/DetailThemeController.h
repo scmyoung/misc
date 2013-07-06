@@ -32,4 +32,9 @@
 
 @property (nonatomic, retain) Model* model;
 
+- (void)setNewLocal:(CLLocation *)local;
+-(void)setNewName:(NSString *)Name;
+-(void)setNewaddress:(NSString *)Address;
+
+
 @end

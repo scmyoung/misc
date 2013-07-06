@@ -11,6 +11,9 @@
 #import "AppDelegate.h"
 
 @implementation DetailThemeController
+CLLocation * newLocation;
+NSString *name;
+NSString *address;
 
 @synthesize titleLabel, distanceLabel, locationLabel, paidTypeLabel;
 
@@ -24,6 +27,20 @@
         // Custom initialization
     }
     return self;
+}
+
+- (void)setNewLocal:(CLLocation *)local
+{
+    newLocation = local;
+}
+
+-(void)setNewName:(NSString *)Name
+{
+    name = Name;
+}
+-(void)setNewaddress:(NSString *)Address
+{
+    address = Address;
 }
 
 - (void)didReceiveMemoryWarning
@@ -50,8 +67,8 @@
     [nearestLabel setText:@"0.43"];
     [furthestLabel setText:@"4.34"];
     
-    [titleLabel setText:model.title];
-    [locationLabel setText:model.location];
+    [titleLabel setText:name];
+    [locationLabel setText:address];
     [paidTypeLabel setText:model.paidType];
     [distanceMetricLabel setText:model.distanceMetric];
     [distanceLabel setText:model.distance];
@@ -60,13 +77,14 @@
     [paidTypeLabel setTextColor:[[AppDelegate instance].colorSwitcher textColor]];
     [locationLabel setTextColor:[[AppDelegate instance].colorSwitcher textColor]];
     
-    Annotation *annotation = [[Annotation alloc] initWithLatitude:model.latitude andLongitude:model.longitude];
+    Annotation *annotation = [[Annotation alloc] initWithLatitude:newLocation.coordinate.latitude
+                                                     andLongitude:newLocation.coordinate.longitude];
     
     [mapView addAnnotation:annotation];
     
     MKCoordinateRegion region;
-    float latitude = model.latitude;
-    float longitude = model.longitude;
+    float latitude = newLocation.coordinate.latitude;
+    float longitude = newLocation.coordinate.longitude;
     
     region.span.latitudeDelta=1.0/69*0.5;
     region.span.longitudeDelta=1.0/69*0.5;

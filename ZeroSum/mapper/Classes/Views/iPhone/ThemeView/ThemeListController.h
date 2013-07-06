@@ -22,6 +22,9 @@
 
 - (void)setGooglePlaceJson:(NSData *)data;
 - (void)setCurrentLocation:(CLLocation *)curLoc;
+-(void)setNewName:(NSString *)Name;
+-(void)setNewaddress:(NSString *)Address;
+
 
 
 @end

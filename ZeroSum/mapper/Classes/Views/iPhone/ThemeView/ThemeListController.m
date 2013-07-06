@@ -38,6 +38,10 @@
     
     NSArray *googlePlaces;
     CLLocation *currentLocation;
+    
+    CLLocation * newLocation;
+    NSString *Name;
+    NSString *Address;
 }
 
 - (void)customizeTabbar;
@@ -163,7 +167,7 @@
     geometry_lat = [[[[[googlePlaces objectAtIndex:indexPath.row] objectForKey:@"geometry"] objectForKey:@"location"] objectForKey:@"lat"] doubleValue];
     geometry_lng = [[[[[googlePlaces objectAtIndex:indexPath.row] objectForKey:@"geometry"] objectForKey:@"location"] objectForKey:@"lng"] doubleValue];
     
-    CLLocation * newLocation = [[CLLocation alloc]initWithLatitude: geometry_lat
+    newLocation = [[CLLocation alloc]initWithLatitude: geometry_lat
                                 longitude: geometry_lng];
     NSLog(@"lat: %f, log: %f", [[[[googlePlaces objectAtIndex:indexPath.row] objectForKey:@"location"] objectForKey:@"lat"] doubleValue], [[[[googlePlaces objectAtIndex:indexPath.row] objectForKey:@"location"] objectForKey:@"lng"] doubleValue]);
     
@@ -172,6 +176,10 @@
     
     NSLog(@"%d", indexPath.row);
     NSDictionary *placeData = [googlePlaces objectAtIndex:indexPath.row];
+    
+    Address = [placeData objectForKey:@"vicinity"];
+    Name = [placeData objectForKey:@"name"];
+    
     [cell.titleLabel setText:[placeData objectForKey:@"name"]];
     [cell.locationLabel setText:[placeData objectForKey:@"vicinity"]];
     [cell.paidTypeLabel setText:@"free"];
@@ -209,12 +217,14 @@
 
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    /*
+    
     DetailThemeController* detail = segue.destinationViewController;
     
-    Model* model = models[[[tableListView indexPathForSelectedRow] row]];    
-    [detail setModel:model];    
-     */
+    //Model* model = models[[[tableListView indexPathForSelectedRow] row]];
+    [detail setNewLocal:newLocation];
+    [detail setNewName:Name];
+    [detail setNewaddress:Address];
+     
 }
 
 
