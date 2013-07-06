@@ -108,7 +108,7 @@
                                             <outlet property="locationLabel" destination="7AB-os-beM" id="q1P-4e-Hhm"/>
                                             <outlet property="paidTypeLabel" destination="rcs-c1-BBM" id="JrL-JH-1hw"/>
                                             <outlet property="titleLabel" destination="M28-HL-Kad" id="8Rc-Td-toP"/>
-                                            <segue destination="RXE-lm-byD" kind="push" identifier="detail" id="O0d-TW-oun"/>
+                                            <segue destination="RXE-lm-byD" kind="push" identifier="detail" id="y60-M6-my1"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

@@ -35,6 +35,8 @@
     NSString *rating ;
 
     NSData *googleJson;
+    
+    NSArray *googlePlaces;
 }
 
 - (void)customizeTabbar;
@@ -61,19 +63,25 @@
                           error:&error];
     
     //The results from Google will be an array obtained from the NSDictionary object with the key "results".
-    NSArray* places = [json objectForKey:@"results"];
-    for (int i=0; i<1; i++) {
+    googlePlaces = [json objectForKey:@"results"];
+    
+    NSInteger a = [googlePlaces count];
+    
+    for (int i=0; i<a; i++) {
         // NSLog(@"Google Data: %@", [places objectAtIndex:i]);
-        oneRes = [places objectAtIndex:i];
+        oneRes = [googlePlaces objectAtIndex:i];
         name = [oneRes objectForKey:@"name"];
         geometry_lat = [[[oneRes objectForKey:@"geometry"] objectForKey:@"location"] objectForKey:@"lat"];
         geometry_lng = [[[oneRes objectForKey:@"geometry"] objectForKey:@"location"] objectForKey:@"lng"];
         formatted_address = [oneRes objectForKey:@"vicinity"];
         rating = [oneRes objectForKey:@"rating"];
         
-        NSLog(@"id - %@", name);
-        
+        NSLog(@"name - %@", name);
+        NSLog(@"address - %@", formatted_address);
+        NSLog(@"rating - %@", rating);
+        NSLog(@"\n");
     }
+    
 }
 
 - (void)viewDidLoad
@@ -147,16 +155,17 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"ThemeListCell";
 
-    ThemeListCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];    
+    ThemeListCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
-        
-    Model* model = models[indexPath.row];
-    
-    [cell.titleLabel setText:name];
-    [cell.locationLabel setText:model.location];
-    [cell.paidTypeLabel setText:model.paidType];
-    [cell.distanceMetricLabel setText:model.distanceMetric];
-    [cell.distanceLabel setText:model.distance];
+            
+    NSLog(@"%d", indexPath.row);
+    NSDictionary *placeData = [googlePlaces objectAtIndex:indexPath.row];
+    [cell.titleLabel setText:[placeData objectForKey:@"name"]];
+    [cell.locationLabel setText:[placeData objectForKey:@"vicinity"]];
+    [cell.paidTypeLabel setText:@"free"];
+    [cell.distanceMetricLabel setText:@"distance"];
+    [cell.distanceLabel setText:@"1.3km"];
     
     [cell.paidTypeLabel setTextColor:[[AppDelegate instance].colorSwitcher textColor]];
     [cell.locationLabel setTextColor:[[AppDelegate instance].colorSwitcher textColor]];
@@ -164,25 +173,37 @@
     return cell;    
 }
 
-
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 0;
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    // Return the number of sections.
+    // If You have only one(1) section, return 1, otherwise you must handle sections
+    return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [models count];
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 80;
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-        
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [googlePlaces count];
 }
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"%d", indexPath.row);
+}
+
 
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    /*
     DetailThemeController* detail = segue.destinationViewController;
     
     Model* model = models[[[tableListView indexPathForSelectedRow] row]];    
     [detail setModel:model];    
+     */
 }
 
 

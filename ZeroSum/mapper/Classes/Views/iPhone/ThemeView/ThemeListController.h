@@ -15,13 +15,9 @@
 
 
 @property (nonatomic, strong) IBOutlet UITableView* tableListView;
-
 @property (nonatomic, strong) IBOutlet UILabel* nearestLabel;
-
 @property (nonatomic, strong) IBOutlet UILabel* furthestLabel;
 @property (weak, nonatomic) IBOutlet UITabBar *tabBar;
-
-
 @property (nonatomic, retain) NSArray* models;
 
 - (void)setGooglePlaceJson:(NSData *)data;

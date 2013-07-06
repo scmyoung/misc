@@ -6,7 +6,11 @@
 //
 //
 
+#import <AudioToolbox/AudioToolbox.h>
+
 #import "ShackViewController.h"
+#import "ThemeListController.h"
+
 
 #define GOOGLE_PLACE_BASE_URL @"https://maps.googleapis.com/maps/api/place/nearbysearch/"
 #define GOOGLE_API_KEY @"AIzaSyAtK3jGI1fZaf_ykuLnq1T3ZMJ440S4vYc"
@@ -40,20 +44,12 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    //UIImage * myImage = [UIImage imageWithContentsOfFile: @"img.jpeg"];
-    UIImage *myImage = [UIImage imageNamed:@"img.jpeg"];
     
-    UIImageView *img = [[UIImageView alloc] initWithImage:myImage];
+    UIImageView *img = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"img.jpeg"]];
+    // TODO: fix lator
     img.frame =CGRectMake(0, 0, 320, 568);
     [self.view addSubview:img];
     
-    CGRect lframe = CGRectMake(0, 0, 320, 40);
-	
-	titleLabel = [[UILabel alloc] initWithFrame:lframe];
-	titleLabel.text = @"No Shake";
-	titleLabel.textAlignment = UITextAlignmentCenter;
-	
-	//[self.view addSubview:titleLabel];
 }
 
 - (void)didReceiveMemoryWarning
@@ -65,78 +61,45 @@
     return YES;
 }
 
+
+#pragma mark - motion delegate
+
 - (void)motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event{
     // you can do any thing at this stage what ever you want. Change the song in playlist, show photo, change photo or whatever you want to do
-    titleLabel.text = @"Shake Started";
-    locMgr = [[CLLocationManager alloc] init];
-    locMgr.delegate = self;
-    locMgr.distanceFilter = kCLDistanceFilterNone;
-    locMgr.desiredAccuracy = kCLLocationAccuracyBest;
-    
-    [self getCurrentLocation];
+
     AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
-    NSLog(@"strat");
 }
 
 - (void)motionCancelled:(UIEventSubtype)motion withEvent:(UIEvent *)event{
-	titleLabel.text = @"Shake Cancelled";
+	NSLog(@"Shack Cancelled");
 }
 
 - (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event{
     // you can do any thing at this stage what ever you want. Change the song in playlist, show photo, change photo or whatever you want to do
-	titleLabel.text = @"Shake Ended";
+	NSLog(@"Shake Ended");
+    
+    if(motion == UIEventSubtypeMotionShake){
+        // We just detected a motion-shake event
+        
+        locMgr = [[CLLocationManager alloc] init];
+        locMgr.delegate = self;
+        locMgr.distanceFilter = kCLDistanceFilterNone;
+        locMgr.desiredAccuracy = kCLLocationAccuracyBest;
+        
+        [self getCurrentLocation];
+    }
+    AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+
 }
 
 
-
+#pragma mark - CLLocation Delegate
 
 - (void)getCurrentLocation
 {
     [locMgr startUpdatingLocation];
 }
 
--(void)fetchedData:(NSData *)responseData {
-    //parse out the json data
-    
-    googlePlaceJson = responseData;
-    
-    /*
-
-    */
-    
-    [self performSegueWithIdentifier:@"ThemeListController" sender:nil];
-    
-    
-    //Write out the data to the console.
-}
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Make sure your segue name in storyboard is the same as this line
-    if ([[segue identifier] isEqualToString:@"ThemeListController"])
-    {
-        // Get reference to the destination view controller
-        ThemeListController *vc = [segue destinationViewController];
-        
-        // Pass any objects to the view controller here, like...
-        [vc setGooglePlaceJson:googlePlaceJson];
-    }
-}
-
-- (void) requestGooglePlaceApi
-{
-    
-    NSString *url = [NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/place/search/json?location=%@&radius=%@&types=%@&sensor=true&key=%@", location, RADIUS, TYPES, GOOGLE_API_KEY];
-    
-    //Formulate the string as a URL object.
-    NSURL *googleRequestURL=[NSURL URLWithString:url];
-    
-    // Retrieve the results of the URL.
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSData* data = [NSData dataWithContentsOfURL: googleRequestURL];
-        [self performSelectorOnMainThread:@selector(fetchedData:) withObject:data waitUntilDone:YES];
-    });
-}
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
@@ -155,6 +118,46 @@
        didFailWithError:(NSError *)error
 {
     NSLog(@"Fail with error %@", error);
+}
+
+
+
+#pragma mark - Prepare Segue
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    // Make sure your segue name in storyboard is the same as this line
+    if ([[segue identifier] isEqualToString:@"ThemeListController"])
+    {
+        // Get reference to the destination view controller
+        ThemeListController *vc = [segue destinationViewController];
+        
+        // Pass any objects to the view controller here, like...
+        [vc setGooglePlaceJson:googlePlaceJson];
+    }
+}
+
+#pragma makr - Google Place API
+
+- (void) requestGooglePlaceApi
+{
+    
+    NSString *url = [NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/place/search/json?location=%@&radius=%@&types=%@&sensor=true&key=%@", location, RADIUS, TYPES, GOOGLE_API_KEY];
+    
+    //Formulate the string as a URL object.
+    NSURL *googleRequestURL=[NSURL URLWithString:url];
+    
+    // Retrieve the results of the URL.
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSData* data = [NSData dataWithContentsOfURL: googleRequestURL];
+        [self performSelectorOnMainThread:@selector(fetchedData:) withObject:data waitUntilDone:YES];
+    });
+}
+
+-(void)fetchedData:(NSData *)responseData {
+    googlePlaceJson = responseData;
+    [self performSegueWithIdentifier:@"ThemeListController" sender:nil];
+    
 }
 
 
